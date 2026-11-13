@@ -7,7 +7,7 @@ export default function Round2() {
       <span className="round-no" aria-hidden="true" style={{ top: "60px" }}>02</span>
       <div className="rv-l" style={{ flex: "1 1 600px", minWidth: "0", position: "relative" }}>
         <img src="img/dedd0ae0391162761bb6873a14a613b5.webp" alt="" aria-hidden="true" className="float hide-sm" style={{ position: "absolute", left: "-60px", bottom: "-40px", height: "300px", width: "auto", zIndex: "2", animationDelay: "-3s", filter: "drop-shadow(0 20px 30px rgba(0,0,0,.7))" }} />
-        <div className="shot"><img src="img/82ad0a21eeb24fef1b060ced8214d5f6.jpg" alt="RYFT live match: both teams with agent, rank, RR and peak rank" /><div className="scan" aria-hidden="true"></div></div>
+        <div className="shot"><img src="img/live-0.3.jpg" alt="RYFT live match: both teams with agent, rank, RR and peak rank" /><div className="scan" aria-hidden="true"></div></div>
       </div>
       <div className="rv-r" style={{ flex: "1 1 380px", minWidth: "0", display: "flex", flexDirection: "column", gap: "18px", position: "relative" }}>
         <span className="lbl" style={{ color: "#5FD0DE" }}>Round 2 · Agent select</span>

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const SHOTS = {
-  overview: ['img/6fda6739bf03ed928667e1134085c08e.jpg', 'RYFT overview: player banner with rank, K/D, win rate, recent matches'],
-  matches: ['img/2ab2d87d056729696a08ff1a78aa22b7.jpg', 'RYFT match history: an opened match with rounds and both team scoreboards'],
-  stats: ['img/6d240f1e8a1532d44a56acef5c32875f.jpg', 'RYFT breakdown: top agents, top weapons and map win rates'],
+  overview: ['img/overview-0.3.jpg', 'RYFT overview: player banner with rank, K/D, win rate, recent matches'],
+  matches: ['img/matches-0.3.jpg', 'RYFT match history: an opened match with rounds and both team scoreboards'],
+  stats: ['img/breakdown-0.3.jpg', 'RYFT breakdown: top agents, top weapons and map win rates'],
 } as const;
 type Tab = keyof typeof SHOTS;
 
