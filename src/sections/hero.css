@@ -1,7 +1,9 @@
 /* Hero art: the character on the left of the column, two small info cards in the
    top-right corner, and the rank orbit kept small and behind the character so it
    never runs under the cards. */
-.ry .hero-art{flex:1 1 640px;min-width:0;position:relative;height:580px;display:flex;align-items:center;justify-content:flex-start}
+.ry .hero-art{flex:1 1 640px;min-width:0;position:relative;height:580px;display:flex;align-items:center;justify-content:flex-start;
+  /* Push the whole art into the page margin on wide screens (up to 90px), never past the screen edge. */
+  transform:translateX(clamp(0px, calc((100vw - 1240px) / 2), 90px))}
 .ry .hero-jett{position:relative;flex:none;width:340px;height:100%;margin-left:40px;display:flex;justify-content:center}
 .ry .hero-orbit{position:absolute;left:50%;top:50%;width:380px;height:380px;margin:-190px 0 0 -190px;border-radius:50%;border:1px dashed rgba(255,70,85,.35);z-index:0}
 .ry .hero-orbit .orbit img{width:44px;height:44px}
@@ -9,5 +11,5 @@
 .ry .hero-cards .lrow{animation-delay:calc(1.9s + var(--i) * .35s)}
 .ry .hero-cards .rrbar i{animation-delay:1.9s}
 /* When the hero stacks (narrower screens), keep the art compact and centred. */
-@media (max-width: 1207px){.ry .hero-art{width:100%;max-width:680px;margin:0 auto}}
+@media (max-width: 1207px){.ry .hero-art{width:100%;max-width:680px;margin:0 auto;transform:none}}
 @media (max-width: 900px){.ry .hero-art{justify-content:center}.ry .hero-jett{margin-left:0}}
