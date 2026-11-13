@@ -94,13 +94,6 @@ export default function Nav() {
       <nav aria-label="Main" className="wrap hud-bar">
         <Logo />
 
-        {release.version && (
-          <span className="hud-live">
-            <i aria-hidden="true" />
-            <span>v{release.version} live</span>
-          </span>
-        )}
-
         <div className="hud-tabs">
           {LINKS.map((l, i) => (
             <a key={l.href} href={l.href} className={`hud-tab${active === l.href ? ' is-active' : ''}`} aria-current={active === l.href ? 'true' : undefined}>

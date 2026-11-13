@@ -28,11 +28,18 @@ a{color:#FF6B77}a:hover{color:#FF8A94}
 .ry .feat{display:flex;gap:18px;align-items:flex-start;padding:16px 0;border-top:1px solid #1F2631}
 .ry .feat:hover .cap{transform:translateY(-3px)}
 
-/* intro: MATCH FOUND */
-.ry .intro{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:#0E1117;pointer-events:none;animation:introOut .7s 2.5s forwards}
-.ry .intro .mf{font-family:'Barlow Condensed',Inter,sans-serif;font-weight:800;font-size:clamp(48px,9vw,120px);letter-spacing:.06em;text-transform:uppercase;color:#E9ECF1;animation:mfIn .5s .2s both}
-.ry .intro .bar{width:min(420px,70vw);height:4px;background:#242B37;border-radius:4px;overflow:hidden;margin-top:18px}
-.ry .intro .bar i{display:block;height:100%;background:#FF4655;animation:load 2s .3s cubic-bezier(.3,.6,.4,1) both}
+/* intro: the screen tears open along the logo's slash */
+.ry .rift{position:fixed;inset:0;z-index:60;pointer-events:none;overflow:hidden}
+.ry .rift-half{position:absolute;inset:0;filter:drop-shadow(0 0 14px rgba(255,70,85,.75));animation:riftOpen .75s .85s cubic-bezier(.75,0,.2,1) forwards}
+.ry .rift-face{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,#171C26 0,#0E1117 55%)}
+.ry .rift-a .rift-face{clip-path:polygon(0 0,calc(50% + 25vh) 0,calc(50% - 25vh) 100%,0 100%)}
+.ry .rift-b .rift-face{clip-path:polygon(calc(50% + 25vh) 0,100% 0,100% 100%,calc(50% - 25vh) 100%)}
+.ry .rift-a{--dir:-1}.ry .rift-b{--dir:1}
+.ry .rift-logo{width:clamp(110px,18vw,180px);height:auto;overflow:visible;animation:riftPulse .35s .5s ease-out both}
+.ry .rift-red,.ry .rift-white{opacity:0}
+.ry .rift-red{animation:slashRed .45s .08s cubic-bezier(.2,1.4,.4,1) forwards}
+.ry .rift-white{animation:slashWhite .45s .16s cubic-bezier(.2,1.4,.4,1) forwards}
+.ry .rift-seam{position:absolute;left:50%;top:50%;width:2px;height:118vh;margin:-59vh 0 0 -1px;background:linear-gradient(180deg,transparent,#FF4655 12%,#fff 50%,#FF4655 88%,transparent);box-shadow:0 0 12px 2px rgba(255,70,85,.9),0 0 40px 6px rgba(255,70,85,.45);transform:rotate(26.565deg) scaleY(0);animation:seam 1s .45s cubic-bezier(.3,.9,.3,1) forwards}
 
 /* hero bits */
 .ry .glitch{position:relative;display:inline-block}
@@ -152,18 +159,20 @@ a{color:#FF6B77}a:hover{color:#FF8A94}
 @keyframes parallax{from{transform:translateY(60px)}to{transform:translateY(-60px)}}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,194,139,.6)}100%{box-shadow:0 0 0 12px rgba(47,194,139,0)}}
-@keyframes introOut{to{opacity:0;visibility:hidden}}
-@keyframes mfIn{from{opacity:0;transform:scale(1.4);letter-spacing:.4em}to{opacity:1;transform:none}}
-@keyframes load{from{width:0}to{width:100%}}
+@keyframes slashRed{from{opacity:0;transform:translate(9px,-18px)}to{opacity:1;transform:none}}
+@keyframes slashWhite{from{opacity:0;transform:translate(-9px,18px)}to{opacity:1;transform:none}}
+@keyframes riftPulse{0%{transform:scale(1)}40%{transform:scale(1.08)}100%{transform:scale(1)}}
+@keyframes seam{0%{transform:rotate(26.565deg) scaleY(0);opacity:1}35%{transform:rotate(26.565deg) scaleY(1);opacity:1}55%{opacity:1}100%{transform:rotate(26.565deg) scaleY(1) scaleX(6);opacity:0}}
+@keyframes riftOpen{to{transform:translate(calc(var(--dir) * (50vw + 25vh + 80px)),calc(var(--dir) * (25vw + 12.5vh + 40px)))}}
 @keyframes countUp{from{--n:0}}
 @keyframes slide{0%,17%{transform:translateX(0)}20%,37%{transform:translateX(-20%)}40%,57%{transform:translateX(-40%)}60%,77%{transform:translateX(-60%)}80%,97%{transform:translateX(-80%)}100%{transform:translateX(0)}}
 @keyframes dotFill{0%{transform:scaleX(0)}18%{transform:scaleX(1)}20%,100%{transform:scaleX(0)}}
 @keyframes pulseBar{0%,100%{opacity:.5}50%{opacity:1}}
 @keyframes dotPulse{0%{box-shadow:0 0 0 0 rgba(255,70,85,.55)}100%{box-shadow:0 0 0 10px rgba(255,70,85,0)}}
 .ry.calm *,.ry.calm *::before,.ry.calm *::after{animation:none !important}
-.ry.calm .intro{display:none}
+.ry.calm .rift{display:none}
 .ry.calm .kf:first-child,.ry.calm .typer span:first-child{opacity:1}
-@media (prefers-reduced-motion: reduce){.ry *,.ry *::before,.ry *::after{animation:none !important}.ry .intro{display:none}.ry .kf:first-child,.ry .typer span:first-child{opacity:1}}
+@media (prefers-reduced-motion: reduce){.ry *,.ry *::before,.ry *::after{animation:none !important}.ry .rift{display:none}.ry .kf:first-child,.ry .typer span:first-child{opacity:1}}
 @media (max-width: 900px){.ry .round-no{font-size:110px;top:-10px}.ry .hide-sm{display:none !important}.ry .diag{clip-path:none}}
 
 /* site additions */
