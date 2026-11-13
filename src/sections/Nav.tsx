@@ -12,8 +12,6 @@ const LINKS = [
   { href: '#faq', label: 'FAQ', ids: ['faq'] },
 ];
 
-const pad = (n: number) => String(n).padStart(2, '0');
-
 function Logo() {
   return (
     <a href="#top" className="hud-logo" aria-label="RYFT home">
@@ -95,9 +93,8 @@ export default function Nav() {
         <Logo />
 
         <div className="hud-tabs">
-          {LINKS.map((l, i) => (
+          {LINKS.map((l) => (
             <a key={l.href} href={l.href} className={`hud-tab${active === l.href ? ' is-active' : ''}`} aria-current={active === l.href ? 'true' : undefined}>
-              <span className="hud-tab-no" aria-hidden="true">{pad(i + 1)}</span>
               <span className="hud-tab-label" data-text={l.label}>{l.label}</span>
             </a>
           ))}
@@ -118,7 +115,6 @@ export default function Nav() {
         <div className="wrap hud-menu-inner">
           {LINKS.map((l, i) => (
             <a key={l.href} href={l.href} className={`hud-menu-link${active === l.href ? ' is-active' : ''}`} style={{ animationDelay: `${i * 45}ms` }} onClick={() => setOpen(false)}>
-              <span className="hud-tab-no" aria-hidden="true">{pad(i + 1)}</span>
               {l.label}
             </a>
           ))}
