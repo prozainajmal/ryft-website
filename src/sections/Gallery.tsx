@@ -13,7 +13,7 @@ export default function Gallery() {
           <div><div className="shot"><img src="img/82ad0a21eeb24fef1b060ced8214d5f6.jpg" alt="Live match screen" /></div><p style={{ margin: "14px 4px 0", color: "#B7BECB" }}><b style={{ color: "#E9ECF1" }}>Live match</b> — both teams’ ranks, RR and peaks while you play.</p></div>
           <div><div className="shot"><img src="img/2ab2d87d056729696a08ff1a78aa22b7.jpg" alt="Match history screen" /></div><p style={{ margin: "14px 4px 0", color: "#B7BECB" }}><b style={{ color: "#E9ECF1" }}>Match history</b> — open any game for rounds and both scoreboards.</p></div>
           <div><div className="shot"><img src="img/6d240f1e8a1532d44a56acef5c32875f.jpg" alt="Stats breakdown screen" /></div><p style={{ margin: "14px 4px 0", color: "#B7BECB" }}><b style={{ color: "#E9ECF1" }}>Breakdown</b> — agents, weapons and maps with real game art.</p></div>
-          <div><div className="shot"><img src="img/fbb96bdcb6d68c851a03eb23736455e1.jpg" alt="Account vault screen" /></div><p style={{ margin: "14px 4px 0", color: "#B7BECB" }}><b style={{ color: "#E9ECF1" }}>Account vault</b> — every account, one PIN, one-click launch.</p></div>
+          <div><div className="shot"><img src="img/vault-0.3.jpg" alt="Account vault screen" /></div><p style={{ margin: "14px 4px 0", color: "#B7BECB" }}><b style={{ color: "#E9ECF1" }}>Account vault</b> — every Riot account, one PIN, one-click launch.</p></div>
         </div>
       </div>
     </div>

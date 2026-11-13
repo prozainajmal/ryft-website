@@ -16,7 +16,7 @@ export default function Round1() {
     </div>
     <div className="rv-r" style={{ flex: "1 1 560px", minWidth: "0", position: "relative" }}>
       <img src="img/0ac1d6616328a93ff99cf4aca3c471ba.webp" alt="" aria-hidden="true" className="float hide-sm" style={{ position: "absolute", right: "-40px", top: "-110px", height: "300px", width: "auto", zIndex: "2", filter: "drop-shadow(0 20px 30px rgba(0,0,0,.7))" }} />
-      <div className="shot"><img src="img/fbb96bdcb6d68c851a03eb23736455e1.jpg" alt="RYFT account vault: saved Riot accounts with Launch and Log out buttons" /><div className="scan" aria-hidden="true"></div></div>
+      <div className="shot"><img src="img/vault-0.3.jpg" alt="RYFT account vault: saved Riot accounts, each with a Launch & Login button" /><div className="scan" aria-hidden="true"></div></div>
     </div>
   </section>
     </>
