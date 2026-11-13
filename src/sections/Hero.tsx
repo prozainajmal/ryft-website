@@ -1,4 +1,6 @@
+import type { CSSProperties } from 'react';
 import { RANKS } from '../data';
+import './hero.css';
 
 // Example lobby shown in the hero card.
 const LOBBY = [
@@ -28,7 +30,7 @@ export default function Hero() {
     </div>
 
     <div className="wrap" style={{ position: "relative", paddingTop: "72px", paddingBottom: "40px", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "40px" }}>
-      <div style={{ flex: "1 1 520px", minWidth: "0", display: "flex", flexDirection: "column", gap: "26px" }}>
+      <div style={{ flex: "1 1 480px", minWidth: "0", display: "flex", flexDirection: "column", gap: "26px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
           <span className="lbl" style={{ color: "#FF6B77" }}>Free Windows app · for Valorant players</span>
         </div>
@@ -60,25 +62,17 @@ export default function Hero() {
         </div>
       </div>
 
-      <div style={{ flex: "1 1 420px", minWidth: "0", position: "relative", height: "580px", display: "flex", justifyContent: "center" }}>
-        <div className="ring2 hide-sm" aria-hidden="true" style={{ left: "50%", top: "50%", width: "560px", height: "560px", margin: "-280px 0 0 -280px" }}></div>
-        <div aria-hidden="true" style={{ position: "absolute", left: "50%", top: "50%", width: "460px", height: "460px", margin: "-230px 0 0 -230px", borderRadius: "50%", border: "1px dashed rgba(255,70,85,.35)" }}>
-          <div className="orbit">
-            <img src="img/d5bfc59279d899c7c190fcc82ea82169.webp" alt="" style={{ left: "198px", top: "-32px" }} />
-            <img src="img/db2c5a28bed5f4a25568361a6f87b439.webp" alt="" style={{ left: "428px", top: "198px" }} />
-            <img src="img/1c63e9cca313fce0a1c711875f8b1b3b.webp" alt="" style={{ left: "198px", top: "428px" }} />
-            <img src="img/4351967924f89de471b21f204c2ff488.webp" alt="" style={{ left: "-32px", top: "198px" }} />
-          </div>
-        </div>
-        <img className="float" src="img/4eba403c5d63a7e20c52c258432d7794.webp" alt="Jett, a Valorant agent" style={{ position: "relative", height: "560px", width: "auto", maxWidth: "100%", objectFit: "contain", filter: "drop-shadow(0 30px 40px rgba(0,0,0,.7))" }} />
-        <div className="float hide-sm" aria-hidden="true" style={{ position: "absolute", left: "-56px", top: "150px", animationDelay: "-4s" }}>
+      <div className="hero-art">
+        {/* Cards sit beside the character, never on top of it. */}
+        <div className="hero-cards hide-sm" aria-hidden="true">
+        <div className="float" style={{ animationDelay: "-4s" }}>
           <div className="hcard" style={{ width: 290 }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, marginBottom: 10 }}>
               <span className="lbl" style={{ display: "flex", alignItems: "center", gap: 8, color: "#FF6B77", fontSize: 10 }}><i className="live-dot"></i>Live · enemy team</span>
               <span className="lbl" style={{ color: "#8C95A6", fontSize: 10 }}>Ascent</span>
             </div>
             {LOBBY.map((p, i) => (
-              <div key={p.agent} className="lrow" style={{ animationDelay: `${3.4 + i * 0.35}s` }}>
+              <div key={p.agent} className="lrow" style={{ "--i": i } as CSSProperties}>
                 <img src={`agents/${p.agent.toLowerCase()}.webp`} alt="" className="lav" />
                 <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", flexDirection: "column", lineHeight: 1.2 }}>
                   <b style={{ fontSize: 14 }}>{p.agent}</b>
@@ -93,7 +87,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className="float hide-sm" aria-hidden="true" style={{ position: "absolute", right: "-8px", bottom: "56px", animationDelay: "-2s" }}>
+        <div className="float" style={{ animationDelay: "-2s", marginLeft: 34 }}>
           <div className="hcard" style={{ width: 236, display: "flex", flexDirection: "column", gap: 10 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <img src="img/db2c5a28bed5f4a25568361a6f87b439.webp" alt="" style={{ width: 46, height: 46, filter: "drop-shadow(0 0 12px rgba(240,98,127,.55))" }} />
@@ -108,6 +102,19 @@ export default function Hero() {
               <span style={{ color: "#2FC28B", fontWeight: 700 }}>▲ +21 last match</span>
             </div>
           </div>
+        </div>
+        </div>
+        <div className="hero-jett">
+          <div className="ring2 hide-sm" aria-hidden="true" style={{ left: "50%", top: "50%", width: "560px", height: "560px", margin: "-280px 0 0 -280px" }}></div>
+          <div aria-hidden="true" style={{ position: "absolute", left: "50%", top: "50%", width: "460px", height: "460px", margin: "-230px 0 0 -230px", borderRadius: "50%", border: "1px dashed rgba(255,70,85,.35)" }}>
+            <div className="orbit">
+              <img src="img/d5bfc59279d899c7c190fcc82ea82169.webp" alt="" style={{ left: "198px", top: "-32px" }} />
+              <img src="img/db2c5a28bed5f4a25568361a6f87b439.webp" alt="" style={{ left: "428px", top: "198px" }} />
+              <img src="img/1c63e9cca313fce0a1c711875f8b1b3b.webp" alt="" style={{ left: "198px", top: "428px" }} />
+              <img src="img/4351967924f89de471b21f204c2ff488.webp" alt="" style={{ left: "-32px", top: "198px" }} />
+            </div>
+          </div>
+          <img className="float" src="img/4eba403c5d63a7e20c52c258432d7794.webp" alt="Jett, a Valorant agent" style={{ position: "relative", height: "560px", width: "auto", maxWidth: "100%", objectFit: "contain", filter: "drop-shadow(0 30px 40px rgba(0,0,0,.7))" }} />
         </div>
       </div>
     </div>
