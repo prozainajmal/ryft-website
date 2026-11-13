@@ -107,18 +107,29 @@ a{color:#FF6B77}a:hover{color:#FF8A94}
 .ry .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,#FF4655,#242B37)}
 .ry .tdot{position:absolute;left:-28px;top:4px;width:16px;height:16px;border-radius:50%;background:#0E1117;border:3px solid #FF4655;animation:dotPulse 2s infinite}
 
-.ry .faq{border-top:1px solid #242B37}
-.ry .faq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;background:none;border:0;color:#E9ECF1;font:700 18px Inter,sans-serif;text-align:left;cursor:pointer;padding:12px 0}
+.ry .faq{position:relative;margin-bottom:10px;padding:0 22px;border-radius:12px;background:#151A22;border:1px solid #242B37;overflow:hidden;transition:border-color .2s,background .2s}
+.ry .faq::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#FF4655;transform:scaleY(0);transition:transform .25s}
+.ry .faq:hover{border-color:#3A4352}
+.ry .faq.open{border-color:rgba(255,70,85,.45);background:linear-gradient(100deg,rgba(255,70,85,.10),#151A22 55%)}
+.ry .faq.open::before{transform:scaleY(1)}
+.ry .faq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:68px;background:none;border:0;color:#E9ECF1;font:700 18px Inter,sans-serif;text-align:left;cursor:pointer;padding:12px 0}
 .ry .faq button:hover{color:#fff}
+.ry .faq .qi{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,70,85,.12);border:1px solid rgba(255,70,85,.35);transition:transform .25s,background .2s}
+.ry .faq.open .qi{transform:rotate(45deg);background:#FF4655;border-color:#FF4655}
+.ry .faq.open .qi svg{stroke:#fff}
+.ry .faq p{animation:rise .35s ease-out both}
 .ry .flink{color:#B7BECB;text-decoration:none;font-size:14px;padding:6px 0;display:inline-block}
 .ry .flink:hover{color:#fff}
 
-/* reveal on scroll */
+/* reveal on scroll: useReveal() adds .in when an element comes on screen, so it always
+   ends fully visible (even at the bottom of the page, where a scroll timeline can't finish) */
+.ry .rv,.ry .rv-l,.ry .rv-r,.ry .rv-z{opacity:0}
+.ry .rv.in{opacity:1;animation:rise .8s cubic-bezier(.2,.7,.2,1) backwards}
+.ry .rv-l.in{opacity:1;animation:fromL .8s cubic-bezier(.2,.7,.2,1) backwards}
+.ry .rv-r.in{opacity:1;animation:fromR .8s cubic-bezier(.2,.7,.2,1) backwards}
+.ry .rv-z.in{opacity:1;animation:zoomIn .7s cubic-bezier(.2,.7,.2,1) backwards}
+.ry .progress{transform:scaleX(0)}
 @supports (animation-timeline: view()){
-  .ry .rv{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 26%}
-  .ry .rv-l{animation:fromL linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
-  .ry .rv-r{animation:fromR linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
-  .ry .rv-z{animation:zoomIn linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
   .ry .progress{animation:grow linear both;animation-timeline:scroll()}
   .ry .par{animation:parallax linear both;animation-timeline:view()}
 }

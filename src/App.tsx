@@ -1,4 +1,5 @@
 import { ReleaseContext, useLatestRelease } from './release';
+import { useReveal } from './useReveal';
 import IntroOverlay from './sections/IntroOverlay';
 import Nav from './sections/Nav';
 import Hero from './sections/Hero';
@@ -22,6 +23,7 @@ import Footer from './sections/Footer';
 
 export default function App() {
   const release = useLatestRelease();
+  useReveal();
   return (
     <ReleaseContext.Provider value={release}>
       <div className="ry" style={{ minHeight: '100vh', background: '#0E1117', color: '#E9ECF1', fontFamily: 'Inter, system-ui, sans-serif', fontSize: 16, lineHeight: 1.55, overflowX: 'hidden' }}>
