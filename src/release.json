@@ -1,0 +1,23 @@
+{
+  "version": "0.3.0",
+  "date": "2026-11-11T20:58:40Z",
+  "url": "https://github.com/prozainajmal/ryft-releases/releases/download/v0.3.0/RYFT-Setup-0.3.0.exe",
+  "size": 108170988,
+  "releases": [
+    {
+      "version": "0.3.0",
+      "date": "2026-11-11T20:58:40Z",
+      "name": "RYFT 0.3.0"
+    },
+    {
+      "version": "0.2.1",
+      "date": "2026-11-10T23:23:32Z",
+      "name": "RYFT 0.2.1"
+    },
+    {
+      "version": "0.2.0",
+      "date": "2026-11-09T18:36:01Z",
+      "name": "RYFT 0.2.0"
+    }
+  ]
+}
