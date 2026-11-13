@@ -1,0 +1,90 @@
+/* Header: tactical HUD bar */
+.ry .hud{--p:0;position:sticky;top:0;z-index:30;background:linear-gradient(180deg,rgba(14,17,23,.92),rgba(14,17,23,.78));backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);transition:background .3s,box-shadow .3s}
+.ry .hud::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)}
+.ry .hud.is-scrolled{background:rgba(10,12,17,.95);box-shadow:0 12px 40px rgba(0,0,0,.55)}
+.ry .hud-bar{position:relative;display:flex;align-items:center;gap:14px;height:72px;transition:height .25s}
+.ry .hud.is-scrolled .hud-bar{height:60px}
+
+/* bottom edge: thin line with a red light sweeping across + scroll progress */
+.ry .hud-progress{position:relative;height:2px;background:#1F2631;overflow:hidden}
+.ry .hud-progress::before{content:"";position:absolute;top:0;bottom:0;width:22%;left:-22%;background:linear-gradient(90deg,transparent,rgba(255,70,85,.9),transparent);animation:hudSweep 5s cubic-bezier(.6,0,.4,1) infinite}
+.ry .hud-progress i{position:absolute;inset:0;transform-origin:left;transform:scaleX(var(--p));background:linear-gradient(90deg,#FF4655,#FF8A94 70%,#fff);box-shadow:0 0 12px rgba(255,70,85,.9)}
+
+/* logo */
+.ry .hud-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#E9ECF1;flex:none}
+.ry .hud-logo-mark{overflow:visible;filter:drop-shadow(0 0 8px rgba(255,70,85,.45));transition:filter .2s}
+.ry .hud-logo-mark path{transition:transform .25s cubic-bezier(.2,1.4,.4,1)}
+.ry .hud-logo:hover .hud-logo-mark{filter:drop-shadow(0 0 14px rgba(255,70,85,.9))}
+.ry .hud-logo:hover .s1{transform:translate(-2px,2px)}
+.ry .hud-logo:hover .s2{transform:translate(2px,-2px)}
+.ry .hud-logo-word{position:relative;font-family:'Barlow Condensed',Inter,sans-serif;font-weight:800;font-size:28px;letter-spacing:.18em;line-height:1}
+.ry .hud-logo-word::before,.ry .hud-logo-word::after{content:attr(data-text);position:absolute;inset:0;opacity:0;pointer-events:none}
+.ry .hud-logo-word::before{color:#FF4655}
+.ry .hud-logo-word::after{color:#3FB9C9}
+.ry .hud-logo:hover .hud-logo-word::before{animation:hudGlitchA .45s steps(2) 1}
+.ry .hud-logo:hover .hud-logo-word::after{animation:hudGlitchB .45s steps(2) 1}
+
+/* live version tag */
+.ry .hud-live{display:inline-flex;align-items:center;gap:7px;flex:none;height:24px;padding:0 9px;border:1px solid #2A3240;border-radius:3px;background:rgba(47,194,139,.07);color:#8FE3C2;font:700 11px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.ry .hud-live i{width:7px;height:7px;border-radius:50%;background:#2FC28B;animation:pulse 1.6s ease-out infinite}
+
+/* tabs */
+.ry .hud-tabs{display:flex;align-items:stretch;gap:2px;margin-left:14px;height:100%}
+.ry .hud-tab{position:relative;display:flex;align-items:center;gap:7px;padding:0 13px;text-decoration:none;color:#9AA3B2;font-family:'Barlow Condensed',Inter,sans-serif;font-weight:700;font-size:16px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;transition:color .15s}
+.ry .hud-tab::before{content:"";position:absolute;left:2px;right:2px;top:22%;bottom:22%;transform:skewX(-18deg) scaleY(.6);opacity:0;background:linear-gradient(180deg,rgba(255,70,85,.22),rgba(255,70,85,.06));box-shadow:inset 0 0 0 1px rgba(255,70,85,.35);transition:opacity .18s,transform .18s}
+.ry .hud-tab::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:3px;background:#FF4655;box-shadow:0 0 12px rgba(255,70,85,.9),0 -4px 16px rgba(255,70,85,.4);transform:scaleX(0);transition:transform .22s cubic-bezier(.2,1,.3,1)}
+.ry .hud-tab-no{position:relative;font:700 10px/1 Inter,sans-serif;letter-spacing:.06em;color:#4C5566;transition:color .15s}
+.ry .hud-tab-label{position:relative}
+.ry .hud-tab-label::before,.ry .hud-tab-label::after{content:attr(data-text);position:absolute;inset:0;opacity:0;pointer-events:none}
+.ry .hud-tab-label::before{color:#FF4655}
+.ry .hud-tab-label::after{color:#3FB9C9}
+.ry .hud-tab:hover{color:#fff}
+.ry .hud-tab:hover::before{opacity:1;transform:skewX(-18deg) scaleY(1)}
+.ry .hud-tab:hover .hud-tab-no{color:#FF4655}
+.ry .hud-tab:hover .hud-tab-label::before{animation:hudGlitchA .35s steps(2) 1}
+.ry .hud-tab:hover .hud-tab-label::after{animation:hudGlitchB .35s steps(2) 1}
+.ry .hud-tab.is-active{color:#fff}
+.ry .hud-tab.is-active .hud-tab-no{color:#FF4655}
+.ry .hud-tab.is-active::after{transform:scaleX(1)}
+.ry .hud-tab:focus-visible,.ry .hud-logo:focus-visible,.ry .hud-dl:focus-visible,.ry .hud-burger:focus-visible,.ry .hud-menu-link:focus-visible{outline:2px solid #FF4655;outline-offset:3px}
+
+.ry .hud-spacer{flex:1 1 0}
+
+/* download: angled cut-corner button */
+.ry .hud-dl{position:relative;display:inline-flex;flex:none;text-decoration:none;filter:drop-shadow(0 6px 18px rgba(255,70,85,.45));transition:filter .2s,transform .15s}
+.ry .hud-dl:hover{filter:drop-shadow(0 8px 26px rgba(255,70,85,.75));transform:translateY(-1px)}
+.ry .hud-dl:active{transform:translateY(1px)}
+.ry .hud-dl-face{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 16px 0 18px;background:linear-gradient(180deg,#FF5a67,#FF4655 55%,#E03544);color:#fff;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);font-family:'Barlow Condensed',Inter,sans-serif;font-weight:800;font-size:18px;letter-spacing:.12em;text-transform:uppercase;transition:height .25s}
+.ry .hud.is-scrolled .hud-dl-main .hud-dl-face{height:40px}
+.ry .hud-dl-face::after{content:"";position:absolute;top:0;bottom:0;width:50px;left:-70px;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:shine 3.2s ease-in-out infinite}
+.ry .hud-dl-face svg{transition:transform .2s}
+.ry .hud-dl:hover .hud-dl-face svg{animation:hudDrop .6s ease-in-out infinite}
+.ry .hud-dl-ver{margin-left:2px;padding:3px 6px;background:rgba(14,17,23,.28);border-radius:2px;font:700 11px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:none}
+
+/* burger + mobile menu */
+.ry .hud-burger{display:none;flex:none;width:44px;height:44px;padding:0;border:1px solid #2A3240;border-radius:4px;background:rgba(255,255,255,.03);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.ry .hud-burger i{display:block;width:20px;height:2px;background:#E9ECF1;transition:transform .2s,opacity .2s}
+.ry .hud-burger i:nth-child(2){width:14px;margin-left:6px;background:#FF4655}
+.ry .hud.is-open .hud-burger i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ry .hud.is-open .hud-burger i:nth-child(2){opacity:0}
+.ry .hud.is-open .hud-burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.ry .hud-menu{position:absolute;left:0;right:0;top:100%;background:rgba(10,12,17,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #FF4655;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.ry .hud-menu[hidden]{display:none}
+.ry .hud-menu-inner{display:flex;flex-direction:column;padding-top:10px;padding-bottom:20px}
+.ry .hud-menu-link{display:flex;align-items:center;gap:14px;padding:14px 4px;border-bottom:1px solid #1F2631;color:#E9ECF1;text-decoration:none;font-family:'Barlow Condensed',Inter,sans-serif;font-weight:800;font-size:28px;letter-spacing:.06em;text-transform:uppercase;animation:hudIn .35s cubic-bezier(.2,1,.3,1) both}
+.ry .hud-menu-link .hud-tab-no{font-size:12px;color:#FF4655}
+.ry .hud-menu-link.is-active{color:#FF4655}
+.ry .hud-dl-menu{margin-top:18px;align-self:stretch}
+.ry .hud-dl-menu .hud-dl-face{width:100%;justify-content:center;height:52px}
+
+@media (max-width: 1180px){.ry .hud-live{display:none}}
+@media (max-width: 1060px){.ry .hud-tab-no{display:none}.ry .hud-tab{padding:0 10px}}
+@media (max-width: 960px){.ry .hud-tabs{display:none}.ry .hud-burger{display:inline-flex}.ry .hud-live{display:inline-flex}}
+@media (max-width: 520px){.ry .hud-live,.ry .hud-dl-main .hud-dl-ver{display:none}.ry .hud-bar{gap:10px}.ry .hud-dl-main .hud-dl-face{padding:0 12px;font-size:16px}}
+@media (max-width: 380px){.ry .hud-dl-main .hud-dl-text{display:none}}
+
+@keyframes hudSweep{0%{left:-22%}60%,100%{left:100%}}
+@keyframes hudGlitchA{0%{opacity:.9;transform:translate(-3px,1px)}50%{opacity:.9;transform:translate(2px,-1px)}100%{opacity:0;transform:none}}
+@keyframes hudGlitchB{0%{opacity:.9;transform:translate(3px,-1px)}50%{opacity:.9;transform:translate(-2px,1px)}100%{opacity:0;transform:none}}
+@keyframes hudDrop{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+@keyframes hudIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
