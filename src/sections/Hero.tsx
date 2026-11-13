@@ -105,16 +105,16 @@ export default function Hero() {
         </div>
         </div>
         <div className="hero-jett">
-          <div className="ring2 hide-sm" aria-hidden="true" style={{ left: "50%", top: "50%", width: "560px", height: "560px", margin: "-280px 0 0 -280px" }}></div>
-          <div aria-hidden="true" style={{ position: "absolute", left: "50%", top: "50%", width: "460px", height: "460px", margin: "-230px 0 0 -230px", borderRadius: "50%", border: "1px dashed rgba(255,70,85,.35)" }}>
+          <div className="ring2 hide-sm" aria-hidden="true" style={{ left: "50%", top: "50%", width: "470px", height: "470px", margin: "-235px 0 0 -235px" }}></div>
+          <div className="hero-orbit" aria-hidden="true">
             <div className="orbit">
-              <img src="img/d5bfc59279d899c7c190fcc82ea82169.webp" alt="" style={{ left: "198px", top: "-32px" }} />
-              <img src="img/db2c5a28bed5f4a25568361a6f87b439.webp" alt="" style={{ left: "428px", top: "198px" }} />
-              <img src="img/1c63e9cca313fce0a1c711875f8b1b3b.webp" alt="" style={{ left: "198px", top: "428px" }} />
-              <img src="img/4351967924f89de471b21f204c2ff488.webp" alt="" style={{ left: "-32px", top: "198px" }} />
+              <img src="img/d5bfc59279d899c7c190fcc82ea82169.webp" alt="" style={{ left: "168px", top: "-22px" }} />
+              <img src="img/db2c5a28bed5f4a25568361a6f87b439.webp" alt="" style={{ left: "358px", top: "168px" }} />
+              <img src="img/1c63e9cca313fce0a1c711875f8b1b3b.webp" alt="" style={{ left: "168px", top: "358px" }} />
+              <img src="img/4351967924f89de471b21f204c2ff488.webp" alt="" style={{ left: "-22px", top: "168px" }} />
             </div>
           </div>
-          <img className="float" src="img/4eba403c5d63a7e20c52c258432d7794.webp" alt="Jett, a Valorant agent" style={{ position: "relative", height: "560px", width: "auto", maxWidth: "100%", objectFit: "contain", filter: "drop-shadow(0 30px 40px rgba(0,0,0,.7))" }} />
+          <img className="float" src="img/4eba403c5d63a7e20c52c258432d7794.webp" alt="Jett, a Valorant agent" style={{ position: "relative", zIndex: 1, height: "560px", width: "auto", maxWidth: "100%", objectFit: "contain", filter: "drop-shadow(0 30px 40px rgba(0,0,0,.7))" }} />
         </div>
       </div>
     </div>
