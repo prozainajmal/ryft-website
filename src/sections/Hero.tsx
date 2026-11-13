@@ -1,4 +1,11 @@
 import { RANKS } from '../data';
+
+// Example lobby shown in the hero card.
+const LOBBY = [
+  { agent: 'Reyna', rank: 'Immortal 2', rr: 214, peak: 'Immortal 3', icon: 'img/db2c5a28bed5f4a25568361a6f87b439.webp', color: '#F0627F' },
+  { agent: 'Omen', rank: 'Ascendant 1', rr: 47, peak: 'Ascendant 3', icon: 'img/1c63e9cca313fce0a1c711875f8b1b3b.webp', color: '#2FC28B' },
+  { agent: 'Sova', rank: 'Diamond 3', rr: 90, peak: 'Immortal 1', icon: 'img/4351967924f89de471b21f204c2ff488.webp', color: '#C98CF0' },
+];
 import { downloadHref, useRelease } from '../release';
 
 export default function Hero() {
@@ -24,7 +31,6 @@ export default function Hero() {
       <div style={{ flex: "1 1 520px", minWidth: "0", display: "flex", flexDirection: "column", gap: "26px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
           <span className="lbl" style={{ color: "#FF6B77" }}>Free Windows app · for Valorant players</span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "8px", height: "28px", padding: "0 10px", borderRadius: "4px", background: "rgba(47,194,139,.1)", border: "1px solid rgba(47,194,139,.35)", color: "#2FC28B", fontSize: "12px", fontWeight: "700" }}><i style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#2FC28B", animation: "pulse 1.6s infinite" }}></i>Match day ready</span>
         </div>
         <h1 className="disp" style={{ fontSize: "clamp(56px, 8vw, 116px)" }}>
           <span className="glitch" data-text="Win the match">Win the match</span><br />
@@ -65,13 +71,43 @@ export default function Hero() {
           </div>
         </div>
         <img className="float" src="img/4eba403c5d63a7e20c52c258432d7794.webp" alt="Jett, a Valorant agent" style={{ position: "relative", height: "560px", width: "auto", maxWidth: "100%", objectFit: "contain", filter: "drop-shadow(0 30px 40px rgba(0,0,0,.7))" }} />
-        <div className="float hide-sm" style={{ position: "absolute", right: "0", bottom: "70px", animationDelay: "-2s", display: "flex", alignItems: "center", gap: "12px", padding: "12px 16px", borderRadius: "8px", background: "rgba(21,26,34,.92)", border: "1px solid #2E3644", boxShadow: "0 16px 40px rgba(0,0,0,.5)" }}>
-          <img src="img/4351967924f89de471b21f204c2ff488.webp" alt="Diamond rank icon" style={{ width: "42px", height: "42px" }} />
-          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}><span className="lbl" style={{ color: "#8C95A6", fontSize: "10px" }}>Enemy duelist</span><b style={{ color: "#C98CF0" }}>Diamond 3 · 90 RR</b></div>
+        <div className="float hide-sm" aria-hidden="true" style={{ position: "absolute", left: "-56px", top: "150px", animationDelay: "-4s" }}>
+          <div className="hcard" style={{ width: 290 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, marginBottom: 10 }}>
+              <span className="lbl" style={{ display: "flex", alignItems: "center", gap: 8, color: "#FF6B77", fontSize: 10 }}><i className="live-dot"></i>Live · enemy team</span>
+              <span className="lbl" style={{ color: "#8C95A6", fontSize: 10 }}>Ascent</span>
+            </div>
+            {LOBBY.map((p, i) => (
+              <div key={p.agent} className="lrow" style={{ animationDelay: `${3.4 + i * 0.35}s` }}>
+                <img src={`agents/${p.agent.toLowerCase()}.webp`} alt="" className="lav" />
+                <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", flexDirection: "column", lineHeight: 1.2 }}>
+                  <b style={{ fontSize: 14 }}>{p.agent}</b>
+                  <span style={{ color: "#8C95A6", fontSize: 11, whiteSpace: "nowrap" }}>Peak {p.peak}</span>
+                </div>
+                <img src={p.icon} alt="" style={{ width: 30, height: 30, filter: `drop-shadow(0 0 8px ${p.color}66)` }} />
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", lineHeight: 1.2, minWidth: 74 }}>
+                  <b style={{ fontSize: 13, color: p.color }}>{p.rank}</b>
+                  <span style={{ color: "#8C95A6", fontSize: 11 }}>{p.rr} RR</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="float hide-sm" style={{ position: "absolute", left: "0", top: "90px", animationDelay: "-4s", display: "flex", alignItems: "center", gap: "12px", padding: "12px 16px", borderRadius: "8px", background: "rgba(21,26,34,.92)", border: "1px solid #2E3644", boxShadow: "0 16px 40px rgba(0,0,0,.5)" }}>
-          <span className="cap" style={{ width: "40px", height: "40px" }}><img src="img/b2c0c3caaa8d2dbf2cb696489f7f163b.webp" alt="" style={{ width: "24px", height: "24px" }} /></span>
-          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}><span className="lbl" style={{ color: "#8C95A6", fontSize: "10px" }}>Vault</span><b>Smurf NA · signed in</b></div>
+        <div className="float hide-sm" aria-hidden="true" style={{ position: "absolute", right: "-8px", bottom: "56px", animationDelay: "-2s" }}>
+          <div className="hcard" style={{ width: 236, display: "flex", flexDirection: "column", gap: 10 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <img src="img/db2c5a28bed5f4a25568361a6f87b439.webp" alt="" style={{ width: 46, height: 46, filter: "drop-shadow(0 0 12px rgba(240,98,127,.55))" }} />
+              <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.15 }}>
+                <span className="lbl" style={{ color: "#8C95A6", fontSize: 10 }}>Your rank</span>
+                <b className="disp" style={{ fontSize: 26, color: "#F0627F" }}>Immortal 3</b>
+              </div>
+            </div>
+            <div className="rrbar"><i style={{ width: "78%" }}></i></div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12 }}>
+              <span style={{ color: "#C9CFD9", fontWeight: 700 }}>78 / 100 RR</span>
+              <span style={{ color: "#2FC28B", fontWeight: 700 }}>▲ +21 last match</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

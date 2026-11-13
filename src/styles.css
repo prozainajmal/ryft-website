@@ -167,6 +167,17 @@ a{color:#FF6B77}a:hover{color:#FF8A94}
 @media (max-width: 900px){.ry .round-no{font-size:110px;top:-10px}.ry .hide-sm{display:none !important}.ry .diag{clip-path:none}}
 
 /* site additions */
+.ry .typer{height:1.55em;line-height:1.55;vertical-align:top;margin-left:.25em}
+/* hero floating cards */
+.ry .hcard{position:relative;padding:14px 16px;border-radius:12px;background:linear-gradient(160deg,rgba(30,36,47,.92),rgba(14,17,23,.92));border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(12px);overflow:hidden}
+.ry .hcard::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,#FF4655,transparent)}
+.ry .live-dot{width:7px;height:7px;border-radius:50%;background:#FF4655;box-shadow:0 0 0 0 rgba(255,70,85,.6);animation:dotPulse 1.4s infinite}
+.ry .lrow{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid rgba(255,255,255,.06);animation:fromR .5s cubic-bezier(.2,.7,.2,1) both}
+.ry .lav{width:34px;height:34px;border-radius:8px;object-fit:cover;background:#1B212B;border:1px solid #2E3644;flex:none}
+.ry .rrbar{height:6px;border-radius:3px;background:#242B37;overflow:hidden}
+.ry .rrbar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#FF4655,#F0627F);box-shadow:0 0 12px rgba(240,98,127,.6);animation:barIn 1.4s 3.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes barIn{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.ry .rrbar i{transform-origin:left}
 html{scroll-behavior:smooth}
 .ry section[id]{scroll-margin-top:72px}
 .ry .btn[aria-disabled="true"]{pointer-events:none;opacity:.7}
